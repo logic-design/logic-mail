@@ -9,8 +9,8 @@ Author URI: https://www.logicdesign.co.uk/
 
 class Logic_Mail
 {
-    private $name  = 'Logic_ Mail Notifications';
-    private $email = 'noreply@logic-mail.co.uk';
+    private $name  = 'Solutions 4';
+    private $email = 'noreply@solutions-4.co.uk';
 
     public function __construct()
     {
@@ -45,7 +45,20 @@ class Logic_Mail
 
     public function filter_wpcf7_mail_components($components, $contactForm)
     {
-        $components['additional_headers'] = "From: {$this->name} <{$this->email}>\r\n";
+        $existing = isset($components['additional_headers']) ? $components['additional_headers'] : '';
+
+        // Remove any existing From: header
+        $existing = preg_replace('/^From:.*$/m', '', $existing);
+
+        // Trim whitespace and ensure proper line ending
+        $existing = trim($existing);
+        if (!empty($existing)) {
+            $existing .= "\r\n";
+        }
+
+        // Add our From header to the existing headers
+        $components['additional_headers'] = $existing . "From: {$this->name} <{$this->email}>\r\n";
+
         return $components;
     }
 
@@ -91,7 +104,6 @@ class Logic_Mail
             });
 
             $email['headers'][] = $fromHeader;
-
         } else {
 
             // Treat as string
