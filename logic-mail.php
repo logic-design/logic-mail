@@ -9,8 +9,8 @@ Author URI: https://www.logicdesign.co.uk/
 
 class Logic_Mail
 {
-    private $name  = 'Solutions 4';
-    private $email = 'noreply@solutions-4.co.uk';
+    private $name  = 'Logic_ Mail Notifications';
+    private $email = 'noreply@logic-mail.co.uk';
 
     public function __construct()
     {
