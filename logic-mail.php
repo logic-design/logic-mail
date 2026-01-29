@@ -2,7 +2,7 @@
 /*
 Plugin Name: Logic Mail
 Description: Custom logic for handling mail in WordPress.
-Version: 1.0.0
+Version: 1.0.2
 Author: Logic Design & Consultancy Ltd
 Author URI: https://www.logicdesign.co.uk/
 */
